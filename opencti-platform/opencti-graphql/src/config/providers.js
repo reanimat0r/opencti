@@ -104,7 +104,7 @@ for (let i = 0; i < providerKeys.length; i += 1) {
       logger.debug(`[LDAP] Successfully logged`, { user });
       const userMail = mappedConfig.mail_attribute ? user[mappedConfig.mail_attribute] : user.mail;
       const userName = mappedConfig.account_attribute ? user[mappedConfig.account_attribute] : user.givenName;
-      if (!userMail || !userName) {
+      if (!userMail) {
         logger.error(`[LDAP] Configuration error, cant map mail and username`, { user, userMail, userName });
         done(null);
       } else {
